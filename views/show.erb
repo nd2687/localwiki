@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title><%= @title %></title>
+</head>
+<body>
+  <%= @item.name %><br>
+  <%= @item.description %><br>
+  <a href="/items/<%= @item.id %>/edit">編集</a>
+  <form action="/items/<%= @item.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="削除">
+  </form>
+</body>
+</html>
