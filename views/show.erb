@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title><%= @title %></title>
-</head>
-<body>
-  <%= @item.name %><br>
-  <%= @item.description %><br>
-  <a href="/items/<%= @item.id %>/edit">編集</a>
+<h1 class="top-title"><a href="/" class="top-link">localwiki</a></h1>
+<div class="clear"></div>
+
+<h4><%= @item.name %></h4>
+
+<div class="DesField">
+  <%= @item.description %>
+</div>
+
+最終更新日時 : <%= @item.timestamp.strftime("%Y/%m/%d %H:%M") %><br>
+
+<div class="btn-wrap">
+  <input type="button" onclick="location.href='/items/<%= @item.id %>/edit'" value="編集" class="edit-btn">
   <form action="/items/<%= @item.id %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="削除">
+    <input type="submit" value="削除" class="del-btn">
   </form>
-</body>
-</html>
+</div>

@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>local wiki</title>
-</head>
-<body>
-  <form action='/items/<%= @item.id %>' method='post'>
-    <input name="_method" value="patch" type="hidden"/>
-    <input type="text" name="item[name]" value="<%= @item.name %>"><br>
-    <textarea name="item[description]"><%= @item.description %></textarea><br>
-    <input type="submit" value="更新する">
-  </form>
-</body>
-</html>
+<h1 class="top-title"><a href="/" class="top-link">localwiki</a></h1>
+<div class="clear"></div>
+
+<form action='/items/<%= @item.id %>' method='post'>
+  <input name="_method" value="patch" type="hidden"/>
+  <input type="text" name="item[name]" value="<%= @item.name %>"><br>
+  <textarea rows="5" name="item[description]" class="item-description"><%= @item.description %></textarea><br>
+  <input type="submit" value="更新する">
+</form>

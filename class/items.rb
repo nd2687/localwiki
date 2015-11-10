@@ -41,6 +41,7 @@ end
 
 get '/items/:id/edit' do
   @item = Item.find(params[:id])
+  @title = "Edit - #{@item.name}"
   erb :edit
 end
 
@@ -59,4 +60,11 @@ delete '/items/:id' do
   else
   end
   redirect '/'
+end
+
+get '/search' do
+  items = Item.arel_table
+  @items = Item.where(items[:name].matches("%#{params[:query]}%"))
+  @noresult = "検索結果なし" if @items.size == 0
+  erb :index
 end

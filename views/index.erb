@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>local wiki</title>
-</head>
-<body>
-  <h1>localwiki</h1>
-  <form action='/items/new' method='post'>
-    <input type="text" name="item[name]"><br>
-    <textarea name="item[description]"></textarea><br>
-    <input type="submit" value="送信する">
+<div id="header-wrap">
+  <div class="top-title"><a href="/" class="top-link">localwiki</a></div>
+
+  <form action="/search" method="get" class="search-form">
+    <input type="text" name="query">
+    <input type="submit" value="検索">
   </form>
-  <ul>
-    <% @items.each do |item| %>
-      <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
-    <% end %>
-  </ul>
-</body>
-</html>
+</div>
+
+<div class="clear"></div>
+
+<form action='/items/new' method='post'>
+  <input type="text" name="item[name]"><br>
+  <textarea rows="5" name="item[description]" class="item-description"></textarea><br>
+  <input type="submit" value="送信する">
+</form>
+
+<%= @noresult %>
+
+<ul>
+  <% @items.each do |item| %>
+    <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+  <% end %>
+</ul>

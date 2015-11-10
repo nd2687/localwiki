@@ -1,0 +1,48 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+ul, li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.top-title {
+  color: #FFF;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 2px 2px 1px #00F,
+  -2px 2px 1px #00F,
+  2px -2px 1px #00F,
+  -2px -2px 1px #00F;
+  margin: 20px 0;
+}
+.top-link {
+  color: #FFFFFF;
+}
+.item-description {
+  width: 90%;
+}
+.btn-wrap {
+  overflow: hidden;
+  padding: 10px 10px 10px 0;
+}
+.edit-btn, .del-btn {
+  float: left;
+}
+.header-wrap {
+  overflow: hidden;
+}
+.top-title, .search-form {
+  float: left;
+}
+.search-form {
+  margin: 53px 0 0 100px;
+}
+.clear {
+  clear: both;
+}
+.DesField {
+  margin: 30px 0;
+}
