@@ -19,6 +19,6 @@
 
 <ul>
   <% @items.each do |item| %>
-    <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+    <li><a href="/items/<%= item.id %>"><%= h item.name %></a></li>
   <% end %>
 </ul>
