@@ -14,8 +14,7 @@ db.execute <<-SQL
   );
 SQL
 
-class Item < ActiveRecord::Base
-end
+class Item < ActiveRecord::Base; end
 
 # delete
 # enable :method_override
