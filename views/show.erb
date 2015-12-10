@@ -13,6 +13,6 @@
   <input type="button" onclick="location.href='/items/<%= @item.id %>/edit'" value="編集" class="edit-btn">
   <form action="/items/<%= @item.id %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="削除" class="del-btn">
+    <input type="submit" value="削除" class="del-btn" onclick="return confirm('本当に削除しますか？')">
   </form>
 </div>
