@@ -9,17 +9,15 @@ $(function(){
   resize(ta);
 
   if(edit.length){
-    var scrollHeight = ta.get(0).scrollHeight;
-    var offsetHeight = ta.get(0).offsetHeight;
-
-    if(scrollHeight > offsetHeight){
-      ta.height(scrollHeight);
+    if(ta.get(0).scrollHeight > ta.get(0).offsetHeight){
+      ta.height(ta.get(0).scrollHeight);
     } else {
       var lineHeight = Number(ta.css("lineHeight").split("px")[0]);
+
       while (true){
         ta.height(ta.height() - lineHeight);
-        if(scrollHeight > offsetHeight){
-          ta.height(scrollHeight);
+        if(ta.get(0).scrollHeight > ta.get(0).offsetHeight){
+          ta.height(ta.get(0).scrollHeight);
           break;
         }
       }
