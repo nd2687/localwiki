@@ -28,9 +28,11 @@ post '/items/new' do
   item = Item.new
   item.name = params[:item][:name]
   item.description = params[:item][:description]
-  item.save
-  UserCsv.add(item.name)
-  UserDic.execute
+  if item.name.present? && item.description.present?
+    item.save
+    UserCsv.add(item.name)
+    UserDic.execute
+  end
   redirect '/'
 end
 
