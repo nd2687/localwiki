@@ -1,0 +1,6 @@
+.DS_Store
+.bundle
+db/localwiki.db
+localwiki.dic
+localwiki.csv
+localwiki.log
