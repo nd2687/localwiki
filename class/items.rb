@@ -20,7 +20,7 @@ class Item < ActiveRecord::Base; end
 # enable :method_override
 
 get '/' do
-  @items = Item.all
+  @items = Item.all.order('timestamp desc')
   erb :index
 end
 
