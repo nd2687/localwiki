@@ -27,7 +27,7 @@ helpers do
         next if name =~ %r(^[+-.$()?*/&%!"'_,]+)
         next if name =~ /^[-.0-9]+$/
 
-        if name == string.surface
+        if name == string.surface || name.capitalize == string.surface || name == string.surface.capitalize
           sentence << ".gsub("
           sentence << "/#{string.surface}/, "
           sentence << '"'
