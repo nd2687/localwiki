@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'natto'
 
 if settings.development?
   require 'pry'
@@ -6,12 +7,39 @@ if settings.development?
 end
 
 require './class/items.rb'
+require './class/user_csv.rb'
+require './class/user_dic.rb'
 
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
 
   def hbr(text)
-    h(text).gsub(/\r\n|\r|\n/, "<br>")
+    nm = Natto::MeCab.new
+
+    sentence = ""
+    sentence << "h('#{text}')"
+    sentence << ".gsub(/\r\n|\r|\n/, '<br>')"
+    nm.parse(text) do |string|
+      Item.all.each do |item|
+        name = item.name
+        next if name == ""
+        next if name =~ %r(^[+-.$()?*/&%!"'_,]+)
+        next if name =~ /^[-.0-9]+$/
+
+        if name == string.surface
+          sentence << ".gsub("
+          sentence << "/#{string.surface}/, "
+          sentence << '"'
+          sentence << "<a href='"
+          sentence << "/items/#{item.id}"
+          sentence << "'>#{string.surface}</a>"
+          sentence << '"'
+          sentence << ")"
+        end
+      end
+    end
+
+    eval sentence
   end
 end

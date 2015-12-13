@@ -29,6 +29,8 @@ post '/items/new' do
   item.name = params[:item][:name]
   item.description = params[:item][:description]
   item.save
+  UserCsv.add(item.name)
+  UserDic.execute
   redirect '/'
 end
 
