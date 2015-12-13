@@ -42,4 +42,8 @@ helpers do
 
     eval sentence
   end
+
+  def set_jtc(utc)
+    utc.advance(hours: +9).strftime("%Y/%m/%d %H:%M")
+  end
 end

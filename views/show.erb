@@ -7,7 +7,7 @@
   <%= hbr @item.description %>
 </div>
 
-最終更新日時 : <%= @item.timestamp.strftime("%Y/%m/%d %H:%M") %><br>
+最終更新日時 : <%= set_jtc @item.timestamp %><br>
 
 <div class="btn-wrap">
   <input type="button" onclick="location.href='/items/<%= @item.id %>/edit'" value="編集" class="edit-btn">
