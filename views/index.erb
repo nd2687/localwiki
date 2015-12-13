@@ -1,13 +1,4 @@
-<div id="header-wrap">
-  <div class="top-title"><a href="/" class="top-link">localwiki</a></div>
-
-  <form action="/search" method="get" class="search-form">
-    <input type="text" name="query">
-    <input type="submit" value="検索">
-  </form>
-</div>
-
-<div class="clear"></div>
+<%= partial(:'shared/header') %>
 
 <form action='/items/new' method='post'>
   <input type="text" name="item[name]"><br>

@@ -1,5 +1,4 @@
-<h1 class="top-title"><a href="/" class="top-link">localwiki</a></h1>
-<div class="clear"></div>
+<%= partial(:'shared/header') %>
 
 <form action='/items/<%= @item.id %>' method='post'>
   <input name="_method" value="patch" type="hidden"/>

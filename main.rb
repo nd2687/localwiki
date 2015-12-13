@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/partial'
 require 'natto'
 
 if settings.development?
@@ -9,6 +10,8 @@ end
 require './class/items.rb'
 require './class/user_csv.rb'
 require './class/user_dic.rb'
+
+set :partial_template_engine, :erb
 
 helpers do
   include Rack::Utils
