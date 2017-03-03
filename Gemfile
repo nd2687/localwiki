@@ -8,6 +8,8 @@ gem "activerecord"
 
 gem "natto"
 
+gem "will_paginate"
+
 # development
 gem "pry"
 gem "sinatra-contrib"

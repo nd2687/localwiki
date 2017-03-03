@@ -20,7 +20,7 @@ class Item < ActiveRecord::Base; end
 # enable :method_override
 
 get '/' do
-  @items = Item.all.order('timestamp desc')
+  @items = Item.order('timestamp desc').paginate(page: params[:page], per_page: 40)
   erb :index
 end
 
@@ -67,7 +67,7 @@ end
 
 get '/search' do
   items = Item.arel_table
-  @items = Item.where(items[:name].matches("%#{params[:query]}%"))
+  @items = Item.where(items[:name].matches("%#{params[:query]}%")).paginate(page: params[:page], per_page: 40)
   @noresult = "検索結果なし" if @items.size == 0
   erb :index
 end

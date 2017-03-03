@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'sinatra/partial'
 require 'natto'
+require 'will_paginate'
+require 'will_paginate/active_record'
+require 'will_paginate/view_helpers/sinatra'
 
 if settings.development?
   require 'pry'
@@ -16,6 +19,8 @@ set :partial_template_engine, :erb
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
+
+  WillPaginate::Sinatra::Helpers
 
   def hbr(text)
     nm = Natto::MeCab.new
@@ -49,4 +54,5 @@ helpers do
   def set_jtc(utc)
     utc.advance(hours: +9).strftime("%Y/%m/%d %H:%M")
   end
+
 end

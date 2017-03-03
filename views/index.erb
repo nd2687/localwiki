@@ -13,3 +13,7 @@
     <li><a href="/items/<%= item.id %>"><%= h item.name %></a></li>
   <% end %>
 </ul>
+
+<Tt>
+  <%= will_paginate @items, previous_label: '前へ', next_label: '次へ' %>
+</Tt>
